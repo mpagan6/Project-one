@@ -2,31 +2,106 @@
 <html lang="en-us">
 
 <head>
+
     <meta charset="UTF-8">
-    <title>ADVENTURE IN DRIVING</title>
-
-    <!-- jQuery -->
+    <title>DRIVING ADVENTURE</title>
     <link rel="stylesheet" type="text/css" href="assets\css\style.css">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="Project-one\assets\javascript\game.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-    <!-- Bootstrap CDN-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 </head>
 
 <body>
-    <!-- Jumbotron Title -->
-    <div class="jumbotron">
-        <h1 class="text-center">ADVENTURE IN DRIVING</h1>
-        <h3 class="text-center">"FEEL THE CLIMAX RIDE."</h3>
+
+    <div class="container">
+
+        <br>
+
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="text-center">WELCOME ON BOARD!</h1>
+            <h3>Ride That make you feel good!</h3>
+        </div>
+
+        <div class="col-lg-6">
+
+            <!-- Controls (Superpower Grow/Shrink)-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Select your Favorites Car Here!</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+
+                        <button class="btn btn-default btn-lg normal-button">
+                            <span class="glyphicon"></span> Car-one</button>
+                        <button class="btn btn-danger btn-lg shrink-button">
+                            <span class="glyphicon"></span> Car-two</button>
+                        <button class="btn btn-danger btn-lg shrink-button">
+                            <span class="glyphicon"></span> Car-three</button>
+                        <button class="btn btn-danger btn-lg shrink-button">
+                            <span class="glyphicon"></span> Car-four</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="content">
-        <div class="left"></div>
-        <div class="right"></div>
+    <div class="col-lg-6">
+
+        <!-- Controls (Superpower Grow/Shrink)-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">All Points Are Matter!!</h3>
+            </div>
+            <div class="panel-body">
+                <div class="text-center">
+                    <button class="btn btn-default btn-lg normal-button">
+                        <span class="glyphicon"></span> Points</button>
+                    <button class="btn btn-primary btn-lg grow-button">
+                        <span class="glyphicon"></span> Timers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!-- Controls (Uber Controls keys) -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Move Controls</h3>
+        </div>
+        <div class="panel-body">
+            <div class="text-center">
+                <button class="btn btn-default btn-lg up-button">
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                </button>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-default btn-lg left-button">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+                <button class="btn btn-default btn-lg down-button">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                </button>
+                <button class="btn btn-default btn-lg right-button">
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-default btn-lg back-button">
+                    <span class="glyphicon"></span> Start Now!</button>
+            </div>
+        </div>
+    </div>
     </div>
 
 
