@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Control</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/images">
 <link rel="stylesheet" type="text/css" href="assets/css/style_control.css">
-<style type="text/css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="settings-container">
+
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-default btn-default">
+      <span class="glyphicon glyphicon-cog"></span> Settings</button>
 
 
-</style>
 
-  
-  </head>
-    <body>
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="setting-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-bottomright">Save Settings</span>
 <div class="control-pannel">
             <h2><span class="glyphicon glyphicon-cog"></span> Settings</h2>
             <hr size="2px">
@@ -63,8 +67,13 @@
         <br>SUV
       </label>
 
+
+
 </div>
-
-
-    </body>
-  </html>
+      </div>
+    </div>
+  </div>
+</div>
+            
+</body>
+</html>
