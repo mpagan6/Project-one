@@ -1,6 +1,10 @@
 # Project-one
 Project one collaboration
 
+<<<<<<< HEAD
+## collaborators
+-olumide
+=======
 Uber Driving Experience
 Team Members:
 Marilyn Pagan
@@ -30,3 +34,4 @@ Tasks
 -	Marilyn: initial start page design, managing trello, and github repository
 
 
+>>>>>>> 943492975ca6aae81a0fc7b3c7754db45f10c075

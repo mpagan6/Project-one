@@ -1,0 +1,38 @@
+body {
+  background-image: url("assets/images/uberCar.jpg");
+}
+.container {
+background-color: #e7e7e7;
+
+	height: 650px;
+
+}
+
+
+.col-sm-10 {
+	height: 600px;
+	
+}
+
+.col-sm-2 {
+	text-align: center;
+	line-height: 70px;
+	padding: 5px;
+	
+
+}
+.hr {
+	line-height: 10px;
+}
+
+
+.btn {
+	width: 125px;
+	padding: 10px;
+
+}
+.imageUsed {
+	width: 150px;
+	padding: 10px;
+
+}
