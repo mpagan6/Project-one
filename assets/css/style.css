@@ -1,0 +1,9 @@
+/* How to play style */
+.container{
+    background-color: black;
+    color: lightgrey;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.instructionText{
+    font-size: 18px;
+}

@@ -1,0 +1,25 @@
+.control-pannel {
+ 
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    overflow: 0;
+    padding: 40px;
+
+   
+}
+
+
+
+.btn {
+    width: 125px;
+    padding: 10px;
+
+}
+
+.btn span.glyphicon {         
+  opacity: 0;       
+}
+.btn.active span.glyphicon {        
+  opacity: 1;    
+}
