@@ -44,3 +44,23 @@ $(document).ready(function(){
     }, 1000);
   }
  
+//select a vehicle option
+//save selection to change vehicle image
+//pass to the element outside of the modal
+
+//listener for click on the input radio button
+//when that element is clicked
+//update the element with the id imageUsed, reflect what was chosen
+//update the image source 
+// update based on the ID
+//<img id="imageUsed" src="assets/images/taxi.png"><br>
+$(document).ready(function(){
+$(".btn-group .btn").on("click", function() {
+  var button= $(this)
+  console.log(button.attr("data-image"))
+  var active = $(".btn-default.active")
+  console.log("active was clicked!");
+  //get from the element the data image attribute
+  //set image used src to that value
+  $("#imageUsed").attr('src', button.attr("data-image"));
+})});
