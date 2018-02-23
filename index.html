@@ -1,251 +1,280 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html lang="en">
 <head>
+  <title>LayOut</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <meta charset="UTF-8">
-    <title>DRIVING ADVENTURE</title>
-    <link rel="stylesheet" type="text/css" href="assets\css\style.css">
-    <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-    <script src="Project-one\assets\javascript\game.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
- <!DOCTYPE html>
+ <script type="text/javascript" src="assets/javascript/game.js"></script>
 
-<html lang="en-us">
 
-<head>
+ <link rel="stylesheet" type="text/css" href="assets/images">
+ <style type="text/css">
+body {
+  background-image: url("assets/images/uberCar.jpg");
+}
+.control-pannel {
+ 
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    overflow: 0;
+    padding: 40px;
+   
+}
+.btn {
+    width: 125px;
+    padding: 10px;
+}
+.btn span.t {         
+  opacity: 0;       
+}
+.btn.active span.t {        
+  opacity: 1;    
+}
 
-    <meta charset="UTF-8">
-    <title>DRIVING ADVENTURE</title>
-    <link rel="stylesheet" type="text/css" href="assets\css\style.css">
-    <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-    <script src="Project-one\assets\javascript\game.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+.direction-btns {
+  text-align: center;
+}
+
+
+
+ </style>
+
+
+  
 
 </head>
-
 <body>
 
-    <div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-        <br>
-
-        <!-- Jumbotron -->
-        <div class="jumbotron">
-            <h1 class="text-center">WELCOME ON BOARD!</h1>
-            <h3>Ride That make you feel good!</h3>
-        </div>
-
-        <div class="col-lg-6">
-
-            <!-- Controls (Superpower Grow/Shrink)-->
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Select your Favorites Car Here!</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="text-center">
-
-                        <button class="btn btn-default btn-lg normal-button">
-                            <span class="glyphicon"></span> Car-one</button>
-                        <button class="btn btn-danger btn-lg shrink-button">
-                            <span class="glyphicon"></span> Car-two</button>
-                        <button class="btn btn-danger btn-lg shrink-button">
-                            <span class="glyphicon"></span> Car-three</button>
-                        <button class="btn btn-danger btn-lg shrink-button">
-                            <span class="glyphicon"></span> Car-four</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div class="col-lg-6">
-
-        <!-- Controls (Superpower Grow/Shrink)-->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">All Points Are Matter!!</h3>
-            </div>
-            <div class="panel-body">
-                <div class="text-center">
-                    <button class="btn btn-default btn-lg normal-button">
-                        <span class="glyphicon"></span> Points</button>
-                    <button class="btn btn-primary btn-lg grow-button">
-                        <span class="glyphicon"></span> Timers</button>
-                </div>
-            </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Uber Game <span class="sr-only">(current)</span></a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter You Name">
         </div>
-    </div>
-    <br>
-    <br>
-    <!-- Controls (Uber Controls keys) -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Move Controls</h3>
-        </div>
-        <div class="panel-body">
-            <div class="text-center">
-                <button class="btn btn-default btn-lg up-button">
-                    <span class="glyphicon glyphicon-arrow-up"></span>
-                </button>
+        <button type="submit" class="btn btn-default">Go</button>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphicon-info-sign"></span> How To Play</button>
+
+
+      <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title">Welcome to the world of Uber Driving!</h2>
             </div>
-            <div class="text-center">
-                <button class="btn btn-default btn-lg left-button">
-                    <span class="glyphicon glyphicon-arrow-left"></span>
-                </button>
-                <button class="btn btn-default btn-lg down-button">
-                    <span class="glyphicon glyphicon-arrow-down"></span>
-                </button>
-                <button class="btn btn-default btn-lg right-button">
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-                </button>
-            </div>
-            <br>
-            <div class="text-center">
-                <button class="btn btn-default btn-lg back-button">
-                    <span class="glyphicon"></span> Start Now!</button>
-            </div>
-        </div>
-    </div>
-    </div>
+            <div class="modal-body">
+              <!--Model content here -->
 
-
-
-</body>
-
-</html>
-=======
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>Uber Driving Experience</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-
-<body>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="assets/javascript/game.js"></script>
-
-    </head>
-
-    <body>
-        <div class="container">
-            <!-- instructions-->
-            <h1>Welcome to the world of Uber Driving!</h1>
-            <h3 class="instructions"> Instructions</h3>
-            <p class="instructionText"> Choose your vehicle from one of the options below</p>
-            <!--Vehicle icons go below-->
-            <div class="car icons">
-                <a href=""><img src="assets/images/car4.jpg" style="width:100px;height:100px;"/>
-                </a>
-                <a href="http://facebook.com"><img src="assets/images/car8.jpg" style="width:100px;height:100px;"/>
-                </a>
-                <a href="http://LandingPageURL.com"><img src="assets/images/car10.jpg" style="width:100px;height:100px;"/>
-                </a>
-                <a href="http://LandingPageURL.com"><img src="assets/images/ubercar.jpg" style="width:100px;height:100px;"/>
-                </a>
-            </div>
-
-
-            <h3 class="instructions"> Instructions</h3>
-            <p class="instructionText"> Choose your vehicle from one of the options below</p>
-            <!--Vehicle icons go below-->
-            <div class="icons">
-
-                <i class="material-icons">directions_car</i>
-                <i class="material-icons">directions_car</i>
-                <i class="material-icons">directions_car</i>
-                <i class="material-icons">directions_car</i>
-            </div>
-            <!-- UserName-->
-            <p class="instructionText"> Enter your username to keep track of your progress and see how you fare against your fellow drivers</p>
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Username" id="user_name" type="text">
-                            <label for="user_name"></label>
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                                <i class="material-icons right">send</i>
-                            </button>
-                            <label for="user_name"></label> <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                  </button>
-                        </div>
-                        <!--Music-->
-                        <p class="instructionText">You have the option to choose your tunes while you cruise the streets of Chicago</p>
-
-                        <!--User How to-->
-                        <br>
-                        <div class="panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Move Controls</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="text-center">
-                                    <button class="btn btn-default btn-lg up-button">
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                    </button>
-                                </div>
-                                <div class="text-center">
-                                    <button class="btn btn-default btn-lg left-button">
-                                        <span class="glyphicon glyphicon-arrow-left"></span>
-                                    </button>
-                                    <button class="btn btn-default btn-lg down-button">
-                                        <span class="glyphicon glyphicon-arrow-down"></span>
-                                    </button>
-                                    <button class="btn btn-default btn-lg right-button">
-                                        <span class="glyphicon glyphicon-arrow-right"></span>
-                                    </button>
-                                </div>
-                                <br>
-                                <div class="text-center">
-                                    <button class="btn btn-default btn-lg back-button">
-                                        <span class="glyphicon"></span> Start Now!</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    </body>
-
-</html>
-                        <p class="instructionText"> How to control your drive: Using the
-                            <i class="material-icons">arrow_backward</i>
-                            <i class="material-icons">arrow_upward</i>
-                            <i class="material-icons">arrow_downward</i>
-                            <i class="material-icons">arrow_forward</i>
-                            Move your vehicle around the map to pick up passengers</p>
-                        <p class="instructionText"> Once you have your passenger get them to their destination quickly to collect your fare!</p>
-                        <p class="instructionText"> The faster you get them to their destinations the more chances you have to collect new passengers
-                            and boost your score. </p>
-                        <p class="instructionText"> Ready to go? </p>
-                    </div>
-
-    </body>
 
 
     
+        <!-- instructions-->
+        
+
+        <h3 class="instructions"> Instructions</h3>
+        <p class="instructionText"> Choose your vehicle from one of the options below</p>
+        <!--Vehicle icons go below-->
+        <div class="icons">
+
+            <img src="assets/images/taxi.png" width="90px">
+            <img src="assets/images/uberX.png" width="90px">
+            <img src="assets/images/lux.png" width="90px">
+            <img src="assets/images/SUV.png" width="90px">
+        </div><br>
+        <!-- UserName-->
+        <p class="instructionText"> Enter your username to keep track of your progress and see how you fare against your fellow drivers</p>
+
+        <!--Music-->
+        <p class="instructionText">You have the option to play music while you cruise the streets of Chicago</p>
+
+        <!--User How to-->
+        <p class="instructionText"> How to control your drive: Using the
+            <!--User How to-->
+            <br>
+          <div class="direction-btns">
+            
+                <button class="btn btn-default btn-sm up-button">
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                </button><br>
+            
+
+            <button class="btn btn-default btn-sm left-button">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </button>
+
+
+            <button class="btn btn-default btn-sm right-button">
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </button><br>
+            
+            <button class="btn btn-default btn-sm down-button">
+                <span class="glyphicon glyphicon-arrow-down"></span>
+            </button>
+            </div>
+
+            <br><p class="instructionText">Move your vehicle around the map to pick up passengers
+        </p></p> 
+        <p class="instructionText"> Once you have your passenger get them to their destination quickly to collect your fare!</p>
+        <p class="instructionText"> The faster you get them to their destinations the more chances you have to collect new passengers and boost your
+            score.
+        </p>
+        <p class="instructionText"> Ready to go? </p>
+    
+
+              <!-- End Model Content -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          </form>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+<!--Top nav end -->
+  
+        <div class="top-control-panel">
+      <div class="row">
+          <div class="col-sm-12" style="background-color:#e7e7e7;"><br>
+            <!--  Insert top control pannel--> 
+      
+        </div>
+          </div>
+            
+      
+    <div class="left-control-panel">
+      <div class="row">
+          <div class="col-sm-2">
+            <!-- Insert left control pannel-->
+
+            <div><img src="assets/images/uber_logo.png" class="logo"></div>
+						<button type="button" class="btn btn-default timer-container" id="#run-the-timer"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Remaining<br><span style="font-size:20px"><span class="minute">03</span>:<span class="second">45</span></span></button>
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-road" aria-hidden="true"></span> Routes<br><span style="font-size:20px">Chicago</span></button>
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Winnings<br><span style="font-size:20px">$98:21</span></button><br>
+    
+              
+              <img src="assets/images/taxi.png" id="imageUsed"><br>
+
+ 
+
+
+
+<!-- Button for Popup Setting window-->
+      <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-default btn-default">
+      <span class="glyphicon glyphicon-cog"></span> Settings</button>
+            
+          
+          
+          </div>
+
+
+  
+        
+      <div class="main-content-pannel">
+        <div class="col-sm-10" style="background-color:white;"><br>
+      <!--  Insert google maps content-->
+
+          
+
+        
+          </div>
+        </div>
+      </div>
+
+<!-- Insert Popup Setting window-->
+
+
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="setting-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-bottomright">Save Settings</span>
+<div class="control-pannel">
+            <h2><span class="glyphicon glyphicon-cog"></span> Settings</h2>
+            <hr size="2px">
+                <div class="row">
+        <div class="col-sm-6">
+                   
+  <p><span class="glyphicon glyphicon-road"></span> Location<select class="form-control" id="location" width="150px">
+                            <option>Chicago</option>
+                            <option>New York</option>
+                            <option>Los Angeles</option>
+                          </select></p></div>
+                          <div class="col-sm-6">
+                                <p><span class="glyphicon glyphicon-headphones"></span> Music</p>
+                                <iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/454350105&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&download=false&sharing=false"></iframe></div>
+                        </div><br>
+      <div class="vehicles">
+             
+      <h3>Select a Vehicle</h3>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-default"><img src="assets/images/taxi.png" width ="90px">
+        <input type="radio" name="options1" id="option1" autocomplete="off">
+        <span class="glyphicon glyphicon-ok t"></span>
+        <br>Taxi
+      </label>
+
+      <label class="btn btn-default"><img src="assets/images/uberX.png" width ="90px">
+        <input type="radio" name="options2" id="option2" autocomplete="off">
+        <span class="glyphicon glyphicon-ok t"></span>
+        <br>UberX
+      </label>
+     
+        <label class="btn btn-default"><img src="assets/images/lux.png" width ="90px">
+        <input type="radio" name="options3" id="option3" autocomplete="off">
+        <span class="glyphicon glyphicon-ok t"></span>
+        <br>Lux
+      </label>
+
+            <label class="btn btn-default"><img src="assets/images/SUV.png" width ="90px">
+        <input type="radio" name="options4" id="option4" autocomplete="off">
+        <span class="glyphicon glyphicon-ok t"></span>
+        <br>SUV
+      </label>
+
+
+      
+
+
+
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- End PopUp Setting Window -->   
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+
 </body>
-</html> 
-
-
-
+</html>

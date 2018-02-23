@@ -1,10 +1,9 @@
 # Project-one
 Project one collaboration
 
-<<<<<<< HEAD
+
 ## collaborators
--olumide
-=======
+
 Uber Driving Experience
 Team Members:
 Marilyn Pagan
