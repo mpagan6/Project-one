@@ -1,9 +1,9 @@
-/* css file
-Designed by Mario, Tony, Marilyn, Olumide
-sorry if i got the name wrong*/
-. content{
-    float: right;
-    width: 50%;
-    height: 100px;
-    background-color: aquamarine;
+/* How to play style */
+.container{
+    background-color: black;
+    color: lightgrey;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.instructionText{
+    font-size: 18px;
 }
