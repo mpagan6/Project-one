@@ -13,7 +13,6 @@
  <script type="text/javascript" src="assets/javascript/game.js"></script>
 
 
- <link rel="stylesheet" type="text/css" href="assets/images">
  <style type="text/css">
 body {
   background-image: url("assets/images/uberCar.jpg");
@@ -42,9 +41,37 @@ body {
   text-align: center;
 }
 
-
-
  </style>
+
+ <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 600px;
+        width: 100%;
+
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0px;
+        padding: 20px;
+      }*/
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 0px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+
+      }
+    </style>
 
 
   
@@ -167,6 +194,7 @@ body {
       <div class="row">
           <div class="col-sm-12" style="background-color:#e7e7e7;"><br>
             <!--  Insert top control pannel--> 
+
       
         </div>
           </div>
@@ -203,10 +231,214 @@ body {
       <div class="main-content-pannel">
         <div class="col-sm-10" style="background-color:white;"><br>
       <!--  Insert google maps content-->
-
-          
-
+      <h2>Uber Trips</h2>
+  <p>Vehicle Selected: UberX</p>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Start Zip</th>
+        <th>End Zip</th>
+        <th>Miles</th>
+        <th>Minutes</th>
+        <th>Earnings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>60632</td>
+        <td>60621</td>
+        <td>19.1</td>
+        <td>22 Mins</td>
+        <td>$32.51</td>
+      </tr>
+      <tr>
         
+        <td>60639</td>
+        <td>60623</td>
+        <td>12.5</td>
+        <td>12 Mins</td>
+        <td>$16.13</td>
+      </tr>
+      <tr>
+        
+        <td>60638</td>
+        <td>60638</td>
+        <td>6.5</td>
+        <td>3.6 Mins</td>
+        <td>$12.21</td>
+      </tr>
+          <input class ="btns" type="button" value="New Ride" onClick="window.location.reload()">
+</div>
+    </tbody>
+  </table>
+
+          <div id="floating-panell">
+    
+         <select hidden="hidden">
+              <option  id="start" value="">A</option>
+        </select>
+          <select hidden="hidden">
+             <option id="end" value="">B</option>
+                </select>
+  </div>
+
+  
+  
+      <div id="map"  ></div>
+    <div id="pano" ></div>
+</div>
+</div>
+<script type="text/javascript">
+var randomLat = ((Math.random() * (41.744310 - 42.018328) + 42.018328))
+    var randomLong = (Math.random() * (-87.666084 - (-87.733375)) + (-87.733375))
+    var strLat = randomLat.toString()
+    var strLong = randomLong.toString()
+    var fenway = strLat + ', ' + strLong
+    var randomLat2 = (Math.random() * (41.744310 - 42.018328) + 42.018328).toString()
+    var randomLong2 = (Math.random() * (-87.666084 - (-87.733375)) + (-87.733375)).toString()
+    var dropOff = randomLat2 + ', ' + randomLong2
+
+//Find distance function
+function getDistanceFromLatLonInMi(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in miles
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance in mi
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+//Console.log to make sure it works
+console.log(getDistanceFromLatLonInMi(randomLat, randomLong, randomLat2, randomLong2));
+var distanceTraveled = getDistanceFromLatLonInMi(randomLat, randomLong, randomLat2, randomLong2);
+//Create durationTraveled variable and console.log to check if it works
+  var durationTraveled = getDistanceFromLatLonInMi(randomLat, randomLong, randomLat2, randomLong2) * 2.16;
+  console.log(durationTraveled);
+
+//Set UberPool Rates
+  var uberPstart = 1.70;
+  var uberPmile = .95;
+  var uberPmin = .14;
+  var uberPminFare = 4.60;
+//Calculate rates
+  var uberPoolfee = uberPstart + (distanceTraveled * uberPmile) + (durationTraveled * uberPmin);
+//Convert to 2 decimal places
+  uberPoolfee = uberPoolfee.toFixed(2);
+  //Console.log UberX Fee
+  console.log("UberPool Fee: " + uberPoolfee);
+
+//Set UberX Rates
+  var uberXstart = 1.70;
+  var uberXmile = .95;
+  var uberXmin = .20;
+  var uberXminFare = 4.60;
+
+//Calculate rates
+  var uberXfee = uberXstart + (distanceTraveled * uberXmile) + (durationTraveled * uberXmin);
+//Convert to 2 decimal places
+  uberXfee = uberXfee.toFixed(2);
+  //Console.log UberX Fee
+  console.log("UberX Fee: " + uberXfee);
+
+//Set UberXl Rates
+  var uberXlstart = 3.00;
+  var uberXlmile = 1.80;
+  var uberXlmin = .35;
+  var uberXlminFare = 8.90;
+//Calculate rates
+  var uberXlfee = uberXlstart + (distanceTraveled * uberXlmile) + (durationTraveled * uberXlmin);
+//Convert to 2 decimal places
+  uberXlfee = uberXlfee.toFixed(2);
+  //Console.log UberX Fee
+  console.log("UberXL Fee: " + uberXlfee);
+
+  //Set UberSelect Rates
+  var uberSelectstart = 4.00;
+  var uberSelectmile = 2.05;
+  var uberSelectmin = .35;
+  var uberXlminFare = 10.90;
+//Calculate rates
+  var uberSelectfee = uberSelectstart + (distanceTraveled * uberSelectmile) + (durationTraveled * uberSelectmin);
+//Convert to 2 decimal places
+  uberSelectfee = uberSelectfee.toFixed(2);
+  //Console.log UberX Fee
+  console.log("UberSelect Fee: " + uberSelectfee);
+  
+
+    function distance() {
+
+      var start
+      var end
+      console.log(strLat);
+    }
+
+    $('#start').val(fenway)
+    $('#end').val(dropOff)
+
+      function initMap() {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: {lat: randomLat, lng: randomLong}
+        });
+        directionsDisplay.setMap(map);
+
+
+        var berkeley = {lat: randomLat, lng: randomLong};
+        var sv = new google.maps.StreetViewService();
+        panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
+        sv.getPanorama({location: berkeley, radius: 50}, processSVData);
+        function processSVData(data, status) {
+        if (status === 'OK') {
+
+
+             panorama.setPano(data.location.pano);
+             panorama.setPov({
+             heading: 270,
+             pitch: 0
+             });
+             panorama.setVisible(true);
+
+        }}
+
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('start').addEventListener('change', onChangeHandler());
+        document.getElementById('end').addEventListener('change', onChangeHandler());
+        
+
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          travelMode: 'DRIVING',
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
+          avoidHighways: false,
+          avoidTolls: false
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }}
+
+
+</script>
+
+      
           </div>
         </div>
       </div>
@@ -238,27 +470,27 @@ body {
       <h3>Select a Vehicle</h3>
       <div class="btn-group" data-toggle="buttons">
         <label class="btn btn-default" data-image="assets/images/taxi.png"><img src="assets/images/taxi.png" width ="90px">
-        <input type="radio" class='car'  name="options1" id="option1" autocomplete="off">
+        <input type="radio" class='car'  name="options1" id="uberPool" autocomplete="off">
         <span class="glyphicon glyphicon-ok t"></span>
-        <br>Taxi
+        <br>Pool
         </label>
 
       <label class="btn btn-default " data-image="assets/images/uberX.png"><img src="assets/images/uberX.png" width ="90px">
-        <input type="radio" class='car'  name="options2" id="option2" autocomplete="off">
+        <input type="radio" class='car'  name="options2" id="uberX" autocomplete="off">
         <span class="glyphicon glyphicon-ok t"></span>
         <br>UberX
       </label>
      
         <label class="btn btn-default " data-image="assets/images/lux.png" ><img src="assets/images/lux.png" width ="90px">
-        <input type="radio" class='car' name="options3" id="option3"  autocomplete="off">
+        <input type="radio" class='car' name="options3" id="uberSelect"  autocomplete="off">
         <span class="glyphicon glyphicon-ok t"></span>
-        <br>Lux
+        <br>Select
       </label>
 
             <label class="btn btn-default " data-image="assets/images/SUV.png"><img src="assets/images/SUV.png" width ="90px">
-        <input type="radio" class='car'  name="options4" id="option4" autocomplete="off">
+        <input type="radio" class='car'  name="options4" id="uberXl" autocomplete="off">
         <span class="glyphicon glyphicon-ok t"></span>
-        <br>SUV
+        <br>UberXL
       </label>
 
 
@@ -272,8 +504,11 @@ body {
   </div>
 </div>
     <!-- End PopUp Setting Window -->   
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBul3aaE5n_RsZh1-ZsHQ7AwNULrFAE5E&callback=initMap">
+ </script>
 
 
 </body>

@@ -1,5 +1,108 @@
-    
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Directions service</title>
+       <script   src="http://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+        width: 100%;
+
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0px;
+        padding: 20px;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 0px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+
+      }
+    </style>
+  </head>
+  <body>
+
+   
+    <div id="floating-panell">
+    
+         <select hidden="hidden">
+              <option  id="start" value="">A</option>
+        </select>
+          <select hidden="hidden">
+             <option id="end" value="">B</option>
+                </select>
+  </div>
+
+  
+  <h2>Uber Trips</h2>
+  <p>Vehicle Selected: UberX</p>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Start Zip</th>
+        <th>End Zip</th>
+        <th>Miles</th>
+        <th>Minutes</th>
+        <th>Earnings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>60632</td>
+        <td>60621</td>
+        <td>19.1</td>
+        <td>22 Mins</td>
+        <td>$32.51</td>
+      </tr>
+      <tr>
+        
+        <td>60639</td>
+        <td>60623</td>
+        <td>12.5</td>
+        <td>12 Mins</td>
+        <td>$16.13</td>
+      </tr>
+      <tr>
+        
+        <td>60638</td>
+        <td>60638</td>
+        <td>6.5</td>
+        <td>3.6 Mins</td>
+        <td>$12.21</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <input class ="btns" type="button" value="New Ride" onClick="window.location.reload()">
+</div>
+
+
+
+
+    
+    <div id="map"  style="width: 100%; height: 100%;float:left"></div>
+    <div id="pano" style="width: 100%; height: 100%;float:left"></div>
+</div>
+   
+
+    <script>
     var randomLat = ((Math.random() * (41.744310 - 42.018328) + 42.018328))
     var randomLong = (Math.random() * (-87.666084 - (-87.733375)) + (-87.733375))
     var strLat = randomLat.toString()
@@ -147,82 +250,17 @@ var distanceTraveled = getDistanceFromLatLonInMi(randomLat, randomLong, randomLa
       }}
 
 
-      $(document).ready(function(){
- //timer code
-    var fragmentTime;
-    jQuery('.timeout_message_show').hide();
-    var minutes = jQuery('span.minute').text();
-    var seconds = jQuery('span.second').text();
-    minutes = parseInt(minutes);
-    seconds = parseInt(seconds);
-    if (isNaN(minutes)) {
-      minutes = 00;
-    }
-    if (isNaN(seconds)) {
-      seconds = 00;
-    }
-    if (minutes == 60) {
-      minutes = 59;
-    }
-    if (seconds == 60) {
-      seconds = 59;
-    }
-    fragmentTime = (60 * minutes) + (seconds);
-    displayMinute = document.querySelector('span.minute');
-    displaySecond = document.querySelector('span.second');
-    startTimer(fragmentTime, displayMinute, displaySecond);
-  });
-   
-  function startTimer(duration, displayMinute, displaySecond) {
-    var timer = duration,
-        displayMinute, displaySecond;
-    var timeIntervalID = setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-      displayMinute.textContent = minutes;
-      displaySecond.textContent = seconds;
-      if (--timer < 0) {
-        timer = 0;
-        if (timer == 0) {
-          clearInterval(timeIntervalID);
-          //alert(jQuery('.timeout_message_show').text());
-        }
-      }
-    }, 1000);
-  }
- 
-//select a vehicle option
-//save selection to change vehicle image
-//pass to the element outside of the modal
 
-//listener for click on the input radio button
-//when that element is clicked
-//update the element with the id imageUsed, reflect what was chosen
-//update the image source 
-// update based on the ID
-//<img id="imageUsed" src="assets/images/taxi.png"><br>
-$(document).ready(function(){
-$(".btn-group .btn").on("click", function() {
-  var button= $(this)
-  console.log(button.attr("data-image"))
-  var active = $(".btn-default.active")
-  console.log("active was clicked!");
-  //get from the element the data image attribute
-  //set image used src to that value
-  $("#imageUsed").attr('src', button.attr("data-image"));
-})});
+
+    </script>
 
 
 
-//Google maps api code
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBul3aaE5n_RsZh1-ZsHQ7AwNULrFAE5E&callback=initMap">
 
 
+    </script>
 
-
-
-
-
-
-
+  </body>
+</html>
