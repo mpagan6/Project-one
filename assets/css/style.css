@@ -1,50 +1,87 @@
-bbody {
-    background-image: url("assets/images/uberCar.jpg");
+body {
+    background-image: url("assets/images/ubercar.jpg");
   }
-  .container {
+.container {
   background-color: #e7e7e7;
-  
-      height: auto;
-      overflow: auto;
-
-  
-  }
-  
-  
-  .col-sm-10 {
-      height: auto;
-
-      
-  }
-  
-  .col-sm-2 {
-      text-align: center;
-      line-height: 80px;
-      padding: 5px;
-      height: 600px;
-      
-  
-  }
-  .hr {
-      line-height: 10px;
-  }
-  
-  
-  .btn {
-      width: 125px;
-      padding: 10px;
-  
-  }
-  .logo {
-      width: 150px;
-      padding: 10px;
-  
-  }
-  
-  #imageUsed {
-          width: 170px;
-      padding: 10px;
+  height: auto;
+  overflow: auto;
+}
+.col-sm-10 {
+  height: auto;
+}
+.col-sm-2 {
+  text-align: center;
+  line-height: 80px;
+  padding: 5px;
+  height: 600px;
+}
+.hr {
+  line-height: 10px;
+}
+.btn {
+  width: 125px;
+  padding: 10px;
+}
+.logo {
+  width: 150px;
+  padding: 10px;
+}
+#imageUsed {
+  width: 170px;
+  padding: 10px;
   background-image: url("");
-  
-  }
+}
+.control-panel {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  overflow: 0;
+  padding: 40px;
+}
 
+.btn {
+  width: 125px;
+  padding: 10px;
+}
+
+.btn span.t {
+  opacity: 0;
+}
+
+.btn.active span.t {
+  opacity: 1;
+}
+
+.direction-btns {
+  text-align: center;
+}
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+#map {
+  height: 600px;
+  width: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 20px;
+}
+
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 0px solid #999;
+  text-align: center;
+  font-family: "Roboto", "sans-serif";
+  line-height: 30px;
+  padding-left: 10px;
+}

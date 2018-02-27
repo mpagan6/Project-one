@@ -6,7 +6,7 @@
     <title>Directions service</title>
        <script   src="http://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -90,7 +90,7 @@
     </tbody>
   </table>
 </div>
-  <input class ="btns" type="button" value="New Ride" onClick="window.location.reload()">
+  <input class ="btns" type="button" value="New Ride"  id= "new-ride-btn" onClick="window.location.reload()">
 </div>
 
 
@@ -101,8 +101,20 @@
     <div id="pano" style="width: 100%; height: 100%;float:left"></div>
 </div>
    
-
-    <script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  // $(document).ready(function(){
+  // var config = {
+  //   apiKey: "AIzaSyCqZED2yq5D1lTAb3mP9d8MOMzxq7hLHEQ",
+  //   authDomain: "uber-game.firebaseapp.com",
+  //   databaseURL: "https://uber-game.firebaseio.com",
+  //   projectId: "uber-game",
+  //   storageBucket: "uber-game.appspot.com",
+  //   messagingSenderId: "118426077192"
+  // };
+  // firebase.initializeApp(config);
+  //   var database = firebase.database ();
     var randomLat = ((Math.random() * (41.744310 - 42.018328) + 42.018328))
     var randomLong = (Math.random() * (-87.666084 - (-87.733375)) + (-87.733375))
     var strLat = randomLat.toString()
@@ -112,6 +124,9 @@
     var randomLong2 = (Math.random() * (-87.666084 - (-87.733375)) + (-87.733375)).toString()
     var dropOff = randomLat2 + ', ' + randomLong2
 
+// $("#new-ride-btn").on(click, function(event) {
+//   event.preventDefault();
+ 
 //Find distance function
 function getDistanceFromLatLonInMi(lat1,lon1,lat2,lon2) {
   var R = 6371; // Radius of the earth in miles
@@ -124,6 +139,7 @@ function getDistanceFromLatLonInMi(lat1,lon1,lat2,lon2) {
     ; 
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = R * c; // Distance in mi
+  //distance 
   return d;
 }
 
@@ -249,6 +265,12 @@ var distanceTraveled = getDistanceFromLatLonInMi(randomLat, randomLong, randomLa
         });
       }}
 
+    // });
+  //expenses
+  var total= [uberPoolfee, uberXfee, uberXlfee, uberSelectfee];
+  var expenses= total[i] *.10;
+  var commission= total[i]*.25;
+  var takeHome=total[i]-expenses[i]-commission[i];
 
 
 
