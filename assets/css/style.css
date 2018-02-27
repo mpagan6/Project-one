@@ -1,6 +1,11 @@
+html,
 body {
-    background-image: url("assets/images/ubercar.jpg");
-  }
+  height: 100%;
+  margin: 0px;
+  padding: 20px;
+
+}
+
 .container {
   background-color: #e7e7e7;
   height: auto;
@@ -18,10 +23,6 @@ body {
 .hr {
   line-height: 10px;
 }
-.btn {
-  width: 125px;
-  padding: 10px;
-}
 .logo {
   width: 150px;
   padding: 10px;
@@ -31,30 +32,7 @@ body {
   padding: 10px;
   background-image: url("");
 }
-.control-panel {
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  overflow: 0;
-  padding: 40px;
-}
 
-.btn {
-  width: 125px;
-  padding: 10px;
-}
-
-.btn span.t {
-  opacity: 0;
-}
-
-.btn.active span.t {
-  opacity: 1;
-}
-
-.direction-btns {
-  text-align: center;
-}
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
@@ -64,13 +42,6 @@ body {
 }
 
 /* Optional: Makes the sample page fill the window. */
-
-html,
-body {
-  height: 100%;
-  margin: 0px;
-  padding: 20px;
-}
 
 #floating-panel {
   position: absolute;

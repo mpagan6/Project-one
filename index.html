@@ -11,6 +11,46 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <script type="text/javascript" src="assets/javascript/game.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/images">
+
+  <style type="text/css">
+    body {
+      background-image: url("assets/images/uberCar.jpg");
+    }
+
+    .control-panel {
+
+      height: 100%;
+      width: 100%;
+      margin: auto;
+      overflow: 0;
+      padding: 40px;
+
+    }
+
+    .btn {
+      width: 125px;
+      padding: 10px;
+    }
+
+    .btn span.t {
+      opacity: 0;
+    }
+
+    .btn.active span.t {
+      opacity: 1;
+    }
+
+    .direction-btns {
+      text-align: center;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -33,18 +73,19 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active">
-            <a href="#">Uber Calculator
+            <a href="#" class="title">Uber Fare Estimator
               <span class="sr-only">(current)</span>
             </a>
+            <h2 id="name-display"></h2>
           </li>
         </ul>
         <form class="navbar-form navbar-right">
           <div class="form-group">
-            <input type="nameText" class="form-control" placeholder="Enter Your Name">
+            <input type="nameText" class="form-control" id ="name-input" placeholder="Enter Your Name">
           </div>
-          <button type="submit" class="btn btn-default">Go</button>
+          <button type="submit" class="btn btn-default" id="addUser">Go</button>
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
-            <span class="glyphicon glyphicon-info-sign"></span> How To Play</button>
+            <span class="glyphicon glyphicon-info-sign"></span> How To Use</button>
 
 
           <!-- Modal -->
@@ -53,7 +94,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h2 class="modal-title">Welcome to the world of Uber Driving!</h2>
+                  <h2 class="modal-title">Uber Fare Estimator!</h2>
                 </div>
                 <div class="modal-body">
                   <!--Model content here -->
@@ -70,13 +111,13 @@
                     <img src="assets/images/SUV.png" width="90px">
                   </div>
                   <br>
-                  <p class="instructionText"> Enter your username to keep track of your progress and see how you fare against your fellow drivers</p>
+                  <p class="instructionText"> Enter your username for personalized experience</p>
 
                   <!--Music-->
                   <p class="instructionText">You have the option to play music while you cruise the streets of Chicago</p>
 
                   <!--User How to-->
-                  <p class="instructionText"> How to control your drive: Using the
+                  <p class="instructionText"> How to use: Use the new ride button to generate a random trip, once ride is generated
                     <!--User How to-->
                     <br>
                     <br>
@@ -126,24 +167,24 @@
               <br>
               <span style="font-size:20px">Chicago</span>
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" id="earnings">
               <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Earnings
               <br>
-              <span style="font-size:20px">$98.21</span>
+              <span style="font-size:20px">$</span>
             </button>
             <br>
 
 
             <img id="imageUsed" src="assets/images/taxi.png">
             <br>
-           <!-- Button for Popup Setting window-->
+            <!-- Button for Popup Setting window-->
             <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-default btn-default">
               <span class="glyphicon glyphicon-cog"></span> Settings</button>
 
 
 
           </div>
-          <div class="main-content-pannel">
+          <div class="main-content-panel">
             <div class="col-sm-10" style="background-color:white;">
               <br>
               <!--  Insert form-->
@@ -183,6 +224,7 @@
                     <div id="pano"></div>
                   </div>
                 </div>
+                
               </div>
             </div>
           </div>
@@ -223,28 +265,28 @@
                     <div class="btn-group" data-toggle="buttons">
                       <label class="btn btn-default" data-image="assets/images/taxi.png">
                         <img src="assets/images/taxi.png" width="90px">
-                        <input type="radio" class='car' name="options1" id="uberPool" autocomplete="off">
+                        <input type="radio" class='car' name="options1" id="uberPool" value="uberPool" autocomplete="off">
                         <span class="glyphicon glyphicon-ok t"></span>
                         <br>Pool
                       </label>
 
                       <label class="btn btn-default " data-image="assets/images/uberX.png">
                         <img src="assets/images/uberX.png" width="90px">
-                        <input type="radio" class='car' name="options2" id="uberX" autocomplete="off">
+                        <input type="radio" class='car' name="options2" id="uberX" value="uberX" autocomplete="off">
                         <span class="glyphicon glyphicon-ok t"></span>
                         <br>UberX
                       </label>
 
                       <label class="btn btn-default " data-image="assets/images/lux.png">
                         <img src="assets/images/lux.png" width="90px">
-                        <input type="radio" class='car' name="options3" id="uberSelect" autocomplete="off">
+                        <input type="radio" class='car' name="options3" id="uberSelect" value="uberSelect" autocomplete="off">
                         <span class="glyphicon glyphicon-ok t"></span>
                         <br>Select
                       </label>
 
                       <label class="btn btn-default " data-image="assets/images/SUV.png">
                         <img src="assets/images/SUV.png" width="90px">
-                        <input type="radio" class='car' name="options4" id="uberXl" autocomplete="off">
+                        <input type="radio" class='car' name="options4" id="uberXl" value="uberXl" autocomplete="off">
                         <span class="glyphicon glyphicon-ok t"></span>
                         <br>UberXL
                       </label>
@@ -255,11 +297,12 @@
               </div>
             </div>
             <!-- End PopUp Setting Window -->
-
             <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBul3aaE5n_RsZh1-ZsHQ7AwNULrFAE5E&callback=initMap">
             </script>
 
 
+
 </body>
+
 </html>
