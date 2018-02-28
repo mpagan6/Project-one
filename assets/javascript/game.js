@@ -91,12 +91,12 @@ $(document).ready(function() {
     console.log(
       getDistanceFromLatLonInMi(randomLat, randomLong, randomLat2, randomLong2)
     );
-    distanceTraveled = getDistanceFromLatLonInMi(
+    distanceTraveled = (getDistanceFromLatLonInMi(
       randomLat,
       randomLong,
       randomLat2,
       randomLong2
-    );
+    )).toFixed(2);
     //Create durationTraveled variable and console.log to check if it works
     durationTraveled =
       (getDistanceFromLatLonInMi(
@@ -177,14 +177,15 @@ $(document).ready(function() {
      console.log("Selecttakehome: " + uberSelectfeetakehome);
     //Console.log UberX Fee
     console.log("UberSelectFee: " + uberSelectfee);
+   
     $(".member-list").append(
-      "<tr><td><name='record'></td><td>"+ distanceTraveled +"</td><td>" +durationTraveled +"</td><td>" +"$" +
+      "<tr><td>Pool</td><td>"+ distanceTraveled +"</td><td>" +durationTraveled +"</td><td>" +"$" +
         uberPoolfee +"</td><td>" +"</td></tr>",
-        "<tr><td><name='record'></td><td>" + distanceTraveled +"</td><td>" +durationTraveled +"</td><td>" +"$" +
+        "<tr><td>UberX</td><td>" + distanceTraveled +"</td><td>" +durationTraveled +"</td><td>" +"$" +
         uberXfee +"</td><td>" +"</td></tr>",
-        "<tr><td><name='record'></td><td>" + distanceTraveled +"</td><td>" +durationTraveled +"</td><td>" +"$" +
+        "<tr><td>Uber XL</td><td>" + distanceTraveled +"</td><td>" +durationTraveled +"</td><td>" +"$" +
         uberXlfee +"</td><td>" +"</td></tr>",
-        "<tr><td><name='record'></td><td>" + distanceTraveled +"</td><td>" +durationTraveled +"</td><td>" +"$" +
+        "<tr><td>Uber Select</td><td>" + distanceTraveled +"</td><td>" +durationTraveled +"</td><td>" +"$" +
         uberSelectfee +"</td><td>" +"</td></tr>"
     );
     
