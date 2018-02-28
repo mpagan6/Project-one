@@ -99,12 +99,12 @@ $(document).ready(function() {
     );
     //Create durationTraveled variable and console.log to check if it works
     durationTraveled =
-      getDistanceFromLatLonInMi(
+      (getDistanceFromLatLonInMi(
         randomLat,
         randomLong,
         randomLat2,
         randomLong2
-      ) * 2.16;
+      ) * 2.16).toFixed(2);
     console.log(durationTraveled);
       
     //Set UberPool Rates
